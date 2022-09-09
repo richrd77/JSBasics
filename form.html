@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            height: 200px;
+            width: 750px;
+            border: 1px solid black;
+            padding: 1em;
+            padding-right: 0;
+            padding-top: 3em;
+        }
+
+        .err-msg {
+            color: red;
+            font-weight: bold;
+            opacity: 0;
+        }
+
+        .not-valid .err-msg {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="frm">
+        <div>
+            <label for="uname">User Name</label>
+            <input type="text" name="uname" id="uname">
+            <span class="err-msg">User Name cannot be empty</span>
+        </div>
+        <div>
+            <label for="pwd">Password</label>
+            <input type="password" name="pwd" id="pwd">
+            <span class="err-msg">Password cannot be empty</span>
+        </div>
+        <div>
+            <label for="age">age</label>
+            <input type="text" name="age" id="age">
+        </div>
+        <div>
+            <button>Login</button>
+        </div>
+    </form>
+
+    <script src="./form.js"></script>
+</body>
+
+</html>
