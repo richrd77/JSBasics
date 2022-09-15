@@ -18,13 +18,13 @@
 
 
 
- fetch('https://jsonplaceholder.typicode.com/users', { method:'GET' })
-.then(r => r.text()).then(r1 => {
-    // console.log(r1)
-    const obj = JSON.parse(r1);
-    console.log(obj)
-    obj.forEach(i => addrow(i));
-});
+fetch('https://jsonplaceholder.typicode.com/users', { method: 'GET' })
+    .then(r => r.text()).then(r1 => {
+        // console.log(r1)
+        const obj = JSON.parse(r1);
+        console.log(obj)
+        obj.forEach(i => addrow(i));
+    });
 
 
 function addrow(user) {
@@ -44,4 +44,31 @@ function addrow(user) {
     tr.appendChild(thirdCol);
 
     document.getElementById('tbl').appendChild(tr);
+}
+
+const form = document.getElementById('frm');
+form.addEventListener('submit', SaveData);
+
+function SaveData(e) {
+    e.preventDefault();
+    const newUser = { name: form['name'].value, username: form['username'].value, email: form['email'].value };
+    console.log(newUser)
+    PerformPostRequest(newUser);
+}
+
+function PerformPostRequest(user) {
+    // const request = new XMLHttpRequest();
+    // request.onreadystatechange = function () {
+    //     if (this.readyState === 4) {
+    //         alert('successfully performed POST operation');
+    //     }
+    // }
+    // request.open('POST', 'https://jsonplaceholder.typicode.com/users');
+    // request.send(JSON.stringify(user));
+
+    fetch('https://jsonplaceholder.typicode.com/users/1', { method: 'DELETE' })
+    .then(r => r.text()).then(r1 => {
+        // console.log(r1)
+        alert('successfully performed DELETE operation');
+    });
 }
